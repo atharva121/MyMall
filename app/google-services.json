@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "237349470065",
-    "firebase_url": "https://my-mall-10cc5.firebaseio.com",
-    "project_id": "my-mall-10cc5",
-    "storage_bucket": "my-mall-10cc5.appspot.com"
+    "project_number": "527407275780",
+    "firebase_url": "https://my-mall-71e42.firebaseio.com",
+    "project_id": "my-mall-71e42",
+    "storage_bucket": "my-mall-71e42.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:237349470065:android:fe6e757133597226",
+        "mobilesdk_app_id": "1:527407275780:android:fe6e757133597226",
         "android_client_info": {
           "package_name": "com.example.android.mymall"
         }
       },
       "oauth_client": [
         {
-          "client_id": "237349470065-upgk3h29e8uh7ko55shseg983ijqnl13.apps.googleusercontent.com",
+          "client_id": "527407275780-odhqpfd381o8gini0996frdkuuj2vic2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBjQwvwOzuxNw01aSxpVKn27QDFu3_ndRw"
+          "current_key": "AIzaSyDO3wmOss7kQGQD7iZNkzNAxQbUh0uJPNM"
         }
       ],
       "services": {

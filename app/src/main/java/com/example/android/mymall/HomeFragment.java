@@ -1,8 +1,10 @@
 package com.example.android.mymall;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,11 @@ public class HomeFragment extends Fragment {
     final private long DELAY_TIME = 3000;
     final private long PERIOD_TIME = 3000;
     ////////// Banner Slider
+
+    ////////// Strip Ad
+    private ImageView stripAdImage;
+    private ConstraintLayout stripAdConatiner;
+    ////////// Strip ad
 
     public HomeFragment() {
         // Required empty public constructor
@@ -70,25 +78,25 @@ public class HomeFragment extends Fragment {
         ////////// Banner Slider
         bannerSliderViewPager = view.findViewById(R.id.banner_slider_view_pager);
         sliderModelList = new ArrayList<SliderModel>();
-        sliderModelList.add(new SliderModel(R.drawable.custom_error_icon));
-        sliderModelList.add(new SliderModel(R.drawable.logo));
+        sliderModelList.add(new SliderModel(R.drawable.custom_error_icon, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.logo, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.green_email, "#5e0606"));
 
-        sliderModelList.add(new SliderModel(R.drawable.green_email));
-        sliderModelList.add(new SliderModel(R.drawable.red_email));
-        sliderModelList.add(new SliderModel(R.drawable.app_icon));
-        sliderModelList.add(new SliderModel(R.drawable.cart_black));
-        sliderModelList.add(new SliderModel(R.drawable.profile_placeholder));
-        sliderModelList.add(new SliderModel(R.drawable.home_icon));
-        sliderModelList.add(new SliderModel(R.drawable.custom_error_icon));
-        sliderModelList.add(new SliderModel(R.drawable.logo));
-        sliderModelList.add(new SliderModel(R.drawable.banner));
+        sliderModelList.add(new SliderModel(R.drawable.red_email, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.app_icon, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.cart_black, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.profile_placeholder, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.home_icon, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.custom_error_icon, "#5e0606"));
 
-        sliderModelList.add(new SliderModel(R.drawable.green_email));
-        sliderModelList.add(new SliderModel(R.drawable.red_email));
+        sliderModelList.add(new SliderModel(R.drawable.logo, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.green_email, "#5e0606"));
+        sliderModelList.add(new SliderModel(R.drawable.red_email, "#5e0606"));
         SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
         bannerSliderViewPager.setAdapter(sliderAdapter);
         bannerSliderViewPager.setClipToPadding(false);
         bannerSliderViewPager.setPageMargin(20);
+        bannerSliderViewPager.setCurrentItem(currentPage);
         ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -122,6 +130,13 @@ public class HomeFragment extends Fragment {
             }
         });
         ////////// Banner Slider
+
+        ////////// Strip Ad
+        stripAdImage = view.findViewById(R.id.strip_ad_image);
+        stripAdConatiner = view.findViewById(R.id.strip_ad_container);
+        stripAdImage.setImageResource(R.drawable.profile_placeholder);
+        stripAdConatiner.setBackgroundColor(Color.parseColor("#5e0606"));
+        ////////// Strip Ad
 
         return view;
     }

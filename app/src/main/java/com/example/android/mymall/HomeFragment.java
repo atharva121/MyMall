@@ -13,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +42,14 @@ public class HomeFragment extends Fragment {
 
     ////////// Strip Ad
     private ImageView stripAdImage;
-    private ConstraintLayout stripAdConatiner;
+    private ConstraintLayout stripAdContainer;
     ////////// Strip ad
+
+    ////////// Horizontal product layout
+    private TextView horizontalLayoutTitle;
+    private Button horizontalLayoutViewAllBtn;
+    private RecyclerView horizontalRecyclerView;
+    ////////// Horizontal product layout
 
     public HomeFragment() {
         // Required empty public constructor
@@ -133,10 +141,33 @@ public class HomeFragment extends Fragment {
 
         ////////// Strip Ad
         stripAdImage = view.findViewById(R.id.strip_ad_image);
-        stripAdConatiner = view.findViewById(R.id.strip_ad_container);
+        stripAdContainer = view.findViewById(R.id.strip_ad_container);
         stripAdImage.setImageResource(R.drawable.profile_placeholder);
-        stripAdConatiner.setBackgroundColor(Color.parseColor("#5e0606"));
+        stripAdContainer.setBackgroundColor(Color.parseColor("#5e0606"));
         ////////// Strip Ad
+
+        ////////// Horizontal product layout
+        horizontalLayoutTitle = view.findViewById(R.id.horizontal_scroll_layout_title);
+        horizontalLayoutViewAllBtn = view.findViewById(R.id.horizontal_scroll_view_all_btn);
+        horizontalRecyclerView = view.findViewById(R.id.horizontal_scroll_layout_recyclerview);
+
+        List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<HorizontalProductScrollModel>();
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.my_rewards, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.app_icon, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.cart_black, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.custom_error_icon, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.green_email, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.red_email, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.home_icon, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.profile_placeholder, "Redmi", "SD 625 Processor", "Rs.5999/-"));
+
+        HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        horizontalRecyclerView.setLayoutManager(linearLayoutManager);
+        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);
+        horizontalProductScrollAdapter.notifyDataSetChanged();
+        ////////// Horizontal product layout
 
         return view;
     }
